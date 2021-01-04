@@ -1,0 +1,17 @@
+saas:
+  cache:
+    type: REDIS
+  redis:
+    ip: 127.0.0.1
+    port: 16379
+    password: SbtyMveYNfLzTks7H0apCmyStPzWJqjy
+    database: 0
+
+spring:
+  cache:
+    type: GENERIC
+  redis:
+    host: ${saas.redis.ip}
+    password: ${saas.redis.password}
+    port: ${saas.redis.port}
+    database: ${saas.redis.database}

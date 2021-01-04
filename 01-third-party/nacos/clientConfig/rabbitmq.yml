@@ -1,0 +1,18 @@
+saas:
+  rabbitmq:
+    # 若系统中有除了zipkin之外的地方使用了mq ，则一定不能设置成false
+    enabled: false
+    ip: 127.0.0.1
+    port: 5672
+    username: saas
+    password: saas
+
+spring:
+  rabbitmq:
+    enabled: ${saas.rabbitmq.enabled}
+    host: ${saas.rabbitmq.ip}
+    port: ${saas.rabbitmq.port}
+    username: ${saas.rabbitmq.username}
+    password: ${saas.rabbitmq.password}
+    listener:
+      type: direct # simple direct
