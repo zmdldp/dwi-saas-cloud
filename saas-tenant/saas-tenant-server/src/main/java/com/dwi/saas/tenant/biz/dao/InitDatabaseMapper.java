@@ -4,6 +4,8 @@ import com.baomidou.mybatisplus.annotation.InterceptorIgnore;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 /**
  * 初始化数据库DAO
  *
@@ -12,12 +14,12 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 @InterceptorIgnore(tenantLine = "true", dynamicTableName = "true")
-public interface InitDbMapper {
+public interface InitDatabaseMapper {
     /**
      * 创建数据库
      *
-     * @param database 数据库
-     * @return 创建数量
+     * @param database
+     * @return
      */
     int createDatabase(@Param("database") String database);
 
@@ -25,9 +27,17 @@ public interface InitDbMapper {
     /**
      * 删除数据库
      *
-     * @param database 数据库
-     * @return 删除数量
+     * @param database
+     * @return
      */
     int dropDatabase(@Param("database") String database);
 
+    /**
+     * 根据条件查询租户列表
+     *
+     * @param status      状态
+     * @param connectType 连接类型
+     * @return 租户编码
+     */
+    List<String> selectTenantCodeList(@Param("status") String status, @Param("connectType") String connectType);
 }
