@@ -62,10 +62,10 @@ public class DatasourceInitSystemStrategy implements InitSystemStrategy {
     @DS("master")
     public boolean initDataSource() {
         // LOCAL 类型的数据源初始化 根据租户编码拼接
-//        List<String> list = initDbMapper.selectTenantCodeList(TenantStatusEnum.NORMAL.name(), TenantConnectTypeEnum.LOCAL.name());
-//        list.forEach((tenant) -> {
-//            dataSourceService.addLocalDynamicRoutingDataSource(tenant);
-//        });
+        List<String> list = initDbMapper.selectTenantCodeList(TenantStatusEnum.NORMAL.name(), TenantConnectTypeEnum.LOCAL.name());
+        list.forEach((tenant) -> {
+            dataSourceService.addLocalDynamicRoutingDataSource(tenant);
+        });
 
         // REMOTE 类型的数据源初始化 根据配置
         List<DatasourceConfig> dcList = datasourceConfigService.listByApplication(applicationName, TenantStatusEnum.NORMAL.name(), TenantConnectTypeEnum.REMOTE.name());

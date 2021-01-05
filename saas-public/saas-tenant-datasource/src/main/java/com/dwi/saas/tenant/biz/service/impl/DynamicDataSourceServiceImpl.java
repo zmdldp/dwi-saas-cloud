@@ -49,16 +49,16 @@ import java.util.Set;
 public class DynamicDataSourceServiceImpl implements DataSourceService {
     private static final String SQL_RESOURCE_PATH = "sqls/%s.sql";
 
-//    @Value("${saas.mysql.database}")
-//    private String defaultDatabase;
-//    @Value("${saas.mysql.driverClassName}")
-//    private String driverClassName;
-//    @Value("${saas.mysql.username}")
-//    private String username;
-//    @Value("${saas.mysql.password}")
-//    private String password;
-//    @Value("${saas.mysql.url}")
-//    private String url;
+    @Value("${saas.mysql.database}")
+    private String defaultDatabase;
+    @Value("${saas.mysql.driverClassName}")
+    private String driverClassName;
+    @Value("${saas.mysql.username}")
+    private String username;
+    @Value("${saas.mysql.password}")
+    private String password;
+    @Value("${saas.mysql.url}")
+    private String url;
 
     private final DataSource dataSource;
     private final DataSourceCreator druidDataSourceCreator;
@@ -99,17 +99,17 @@ public class DynamicDataSourceServiceImpl implements DataSourceService {
         return ds.getCurrentDataSources().keySet();
     }
 
-//    @Override
-//    public boolean addLocalDynamicRoutingDataSource(String tenant) {
-//        DataSourceProperty dto = new DataSourceProperty();
-//        dto.setUsername(username);
-//        dto.setPassword(password);
-//        dto.setUrl(StrUtil.replace(url, defaultDatabase, databaseProperties.getTenantDatabasePrefix() + StrUtil.UNDERLINE + tenant));
-//        dto.setDriverClassName(driverClassName);
-//        dto.setPoolName(tenant);
-//        addDynamicRoutingDataSource(dto);
-//        return true;
-//    }
+    @Override
+    public boolean addLocalDynamicRoutingDataSource(String tenant) {
+        DataSourceProperty dto = new DataSourceProperty();
+        dto.setUsername(username);
+        dto.setPassword(password);
+        dto.setUrl(StrUtil.replace(url, defaultDatabase, databaseProperties.getTenantDatabasePrefix() + StrUtil.UNDERLINE + tenant));
+        dto.setDriverClassName(driverClassName);
+        dto.setPoolName(tenant);
+        addDynamicRoutingDataSource(dto);
+        return true;
+    }
 
     @Override
     public Set<String> addDynamicRoutingDataSource(DataSourceProperty dto) {

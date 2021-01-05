@@ -33,7 +33,7 @@ public interface DataSourceService {
      * @param tenant
      * @return
      */
-    //boolean addLocalDynamicRoutingDataSource(String tenant);
+    boolean addLocalDynamicRoutingDataSource(String tenant);
 
     /**
      * 删除指定的数据源

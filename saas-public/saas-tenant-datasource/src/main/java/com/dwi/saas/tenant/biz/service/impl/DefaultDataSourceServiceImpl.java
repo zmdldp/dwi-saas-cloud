@@ -51,10 +51,10 @@ public class DefaultDataSourceServiceImpl implements DataSourceService {
         return null;
     }
 
-//    @Override
-//    public boolean addLocalDynamicRoutingDataSource(String tenant) {
-//        return false;
-//    }
+    @Override
+    public boolean addLocalDynamicRoutingDataSource(String tenant) {
+        return false;
+    }
 
     @Override
     public boolean initConnect(DataSourcePropertyDTO dataSourceProperty) {
