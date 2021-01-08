@@ -4,9 +4,8 @@ import cn.hutool.core.util.StrUtil;
 import com.dwi.basic.database.properties.DatabaseProperties;
 import com.dwi.basic.exception.BizException;
 import com.dwi.basic.utils.StrPool;
-import com.dwi.saas.tenant.biz.dao.InitDatabaseMapper;
 //import com.dwi.saas.tenant.biz.dao.InitDatabaseMapper;
-//import com.dwi.saas.tenant.biz.dao.InitDbMapper;
+import com.dwi.saas.tenant.biz.dao.InitDbMapper;
 //import com.dwi.saas.tenant.biz.dao.InitDbMapper;
 import com.dwi.saas.tenant.biz.strategy.InitSystemStrategy;
 import com.dwi.saas.tenant.domain.dto.TenantConnectDTO;
@@ -56,7 +55,7 @@ public class SchemaInitSystemStrategy implements InitSystemStrategy {
     private static final List<String> INIT_DATABASE_LIST = Arrays.asList(BASE_DATABASE, EXTEND_DATABASE);
 
     private final DataSource dataSource;
-    private final InitDatabaseMapper initDbMapper;
+    private final InitDbMapper initDbMapper;
     private final DatabaseProperties databaseProperties;
 
     @Value("${saas.mysql.database}")

@@ -199,15 +199,15 @@ public class DynamicDataSourceServiceImpl implements DataSourceService {
 
     @Override
     public boolean initConnect(DataSourcePropertyDTO dto) {
-//        if (TenantConnectTypeEnum.LOCAL.eq(dto.getType())) {
-//            // 创建 库
-//            this.initDatabases(dto.getPoolName());
-//
-//            dto.setUsername(username);
-//            dto.setPassword(password);
-//            dto.setUrl(StrUtil.replace(url, defaultDatabase, databaseProperties.getTenantDatabasePrefix() + StrUtil.UNDERLINE + dto.getPoolName()));
-//            dto.setDriverClassName(driverClassName);
-//        }
+        if (TenantConnectTypeEnum.LOCAL.eq(dto.getType())) {
+            // 创建 库
+            this.initDatabases(dto.getPoolName());
+
+            dto.setUsername(username);
+            dto.setPassword(password);
+            dto.setUrl(StrUtil.replace(url, defaultDatabase, databaseProperties.getTenantDatabasePrefix() + StrUtil.UNDERLINE + dto.getPoolName()));
+            dto.setDriverClassName(driverClassName);
+        }
         // 链接
         DataSourceProperty dataSourceProperty = new DataSourceProperty();
         BeanUtils.copyProperties(dto, dataSourceProperty);
