@@ -1,14 +1,8 @@
 package com.dwi.saas.activiti.domain.dto.biz;
 
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.dwi.basic.base.entity.Entity;
-import com.baomidou.mybatisplus.annotation.TableField;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
 import org.hibernate.validator.constraints.Length;
-import org.hibernate.validator.constraints.Range;
 import lombok.Data;
 import lombok.Builder;
 import lombok.EqualsAndHashCode;
@@ -16,7 +10,6 @@ import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
 import lombok.ToString;
 import lombok.experimental.Accessors;
-import com.dwi.saas.common.constant.DictionaryType;
 import java.io.Serializable;
 
 /**

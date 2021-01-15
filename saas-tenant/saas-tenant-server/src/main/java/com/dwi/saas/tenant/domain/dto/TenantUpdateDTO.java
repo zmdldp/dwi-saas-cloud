@@ -1,9 +1,9 @@
 package com.dwi.saas.tenant.domain.dto;
 
 import com.dwi.basic.base.entity.SuperEntity;
+import com.dwi.saas.tenant.domain.enumeration.TenantTypeEnum;
 import com.dwi.saas.tenant.domain.enumeration.TenantConnectTypeEnum;
 import com.dwi.saas.tenant.domain.enumeration.TenantStatusEnum;
-import com.dwi.saas.tenant.domain.enumeration.TenantTypeEnum;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

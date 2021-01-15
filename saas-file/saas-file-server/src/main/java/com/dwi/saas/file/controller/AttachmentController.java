@@ -14,13 +14,12 @@ import com.dwi.basic.base.controller.SuperSimpleController;
 import com.dwi.basic.base.request.PageParams;
 import com.dwi.basic.context.ContextUtil;
 import com.dwi.basic.utils.BizAssert;
-import com.dwi.saas.file.biz.service.AttachmentService;
 import com.dwi.saas.file.domain.dto.AttachmentDTO;
 import com.dwi.saas.file.domain.dto.AttachmentRemoveDTO;
 import com.dwi.saas.file.domain.dto.AttachmentResultDTO;
 import com.dwi.saas.file.domain.dto.FilePageReqDTO;
 import com.dwi.saas.file.domain.entity.Attachment;
-
+import com.dwi.saas.file.biz.service.AttachmentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
 import io.swagger.annotations.ApiImplicitParams;
@@ -48,7 +47,6 @@ import java.util.List;
 import java.util.Map;
 
 import static com.dwi.basic.exception.code.ExceptionCode.BASE_VALID_PARAM;
-import static com.dwi.saas.common.constant.SwaggerConstants.DATA_TYPE_ARRAY;
 import static com.dwi.saas.common.constant.SwaggerConstants.DATA_TYPE_BOOLEAN;
 import static com.dwi.saas.common.constant.SwaggerConstants.DATA_TYPE_LONG;
 import static com.dwi.saas.common.constant.SwaggerConstants.DATA_TYPE_MULTIPART_FILE;
@@ -136,6 +134,10 @@ public class AttachmentController extends SuperSimpleController<AttachmentServic
     )
     @GetMapping
     @SysLog("根据业务类型查询附件")
+    @ApiImplicitParams({
+            @ApiImplicitParam(name = "bizIds", value = "业务id", dataType = DATA_TYPE_STRING, allowMultiple = true, paramType = PARAM_TYPE_QUERY),
+            @ApiImplicitParam(name = "bizTypes", value = "业务类型", dataType = DATA_TYPE_STRING, allowMultiple = true, paramType = PARAM_TYPE_QUERY),
+    })
     @PreAuth("hasAnyPermission('{}view')")
     public R<List<AttachmentResultDTO>> findAttachment(@RequestParam(value = "bizTypes", required = false) String[] bizTypes,
                                                        @RequestParam(value = "bizIds", required = false) String[] bizIds) {
@@ -187,12 +189,12 @@ public class AttachmentController extends SuperSimpleController<AttachmentServic
      *
      * @param bizIds   业务id
      * @param bizTypes 业务类型
-     * @author dwi
+     * @author zuihou
      * @date 2019-05-12 21:23
      */
     @ApiImplicitParams({
-            @ApiImplicitParam(name = "bizIds[]", value = "业务id数组", dataType = DATA_TYPE_ARRAY, paramType = PARAM_TYPE_QUERY),
-            @ApiImplicitParam(name = "bizTypes[]", value = "业务类型数组", dataType = DATA_TYPE_ARRAY, paramType = PARAM_TYPE_QUERY),
+            @ApiImplicitParam(name = "bizIds[]", value = "业务id数组", dataType = DATA_TYPE_STRING, allowMultiple = true, paramType = PARAM_TYPE_QUERY),
+            @ApiImplicitParam(name = "bizTypes[]", value = "业务类型数组", dataType = DATA_TYPE_STRING, allowMultiple = true, paramType = PARAM_TYPE_QUERY),
     })
     @ApiOperation(value = "根据业务类型/业务id打包下载", notes = "根据业务id下载一个文件或多个文件打包下载")
     @GetMapping(value = "/download/biz", produces = "application/octet-stream")
@@ -211,7 +213,7 @@ public class AttachmentController extends SuperSimpleController<AttachmentServic
      *
      * @param url      文件链接
      * @param filename 文件名称
-     * @author dwi
+     * @author zuihou
      * @date 2019-05-12 21:24
      */
     @ApiOperation(value = "根据url下载文件(不推荐)", notes = "根据文件的url下载文件(不推荐使用，若要根据url下载，请执行通过nginx)")

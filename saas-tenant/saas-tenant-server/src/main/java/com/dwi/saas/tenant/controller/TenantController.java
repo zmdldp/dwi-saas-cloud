@@ -8,12 +8,12 @@ import com.dwi.basic.base.controller.SuperCacheController;
 import com.dwi.basic.database.mybatis.conditions.Wraps;
 import com.dwi.saas.tenant.TenantApi;
 import com.dwi.saas.tenant.biz.service.TenantService;
-import com.dwi.saas.tenant.domain.dto.TenantConnectDTO;
 import com.dwi.saas.tenant.domain.dto.TenantPageQuery;
 import com.dwi.saas.tenant.domain.dto.TenantSaveDTO;
 import com.dwi.saas.tenant.domain.dto.TenantUpdateDTO;
-//import com.dwi.saas.tenant.domain.entity.Tenant;
 import com.dwi.saas.tenant.domain.entity.Tenant;
+import com.dwi.saas.tenant.domain.dto.TenantConnectDTO;
+import com.dwi.saas.tenant.domain.enumeration.TenantStatusEnum;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -31,6 +31,8 @@ import org.springframework.web.bind.annotation.RestController;
 import static com.dwi.saas.tenant.domain.enumeration.TenantStatusEnum.NORMAL;
 
 import java.util.List;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * <p>
@@ -95,15 +97,21 @@ public class TenantController extends SuperCacheController<TenantService, Long, 
 
     @ApiOperation(value = "删除租户和基础租户数据，请谨慎操作")
     @DeleteMapping("/deleteAll")
-    @PreAuth("hasAnyRole('SUPER_ADMIN')")
+    @PreAuth("hasAnyRole('PT_ADMIN')")
     public R<Boolean> deleteAll(@RequestParam("ids[]") List<Long> ids) {
         return success(baseService.deleteAll(ids));
+    }
+
+    @ApiOperation(value = "修改租户状态", notes = "修改租户状态")
+    @PostMapping("/status")
+    public R<Boolean> updateStatus(@RequestParam("ids[]") List<Long> ids,
+                                   @RequestParam(defaultValue = "FORBIDDEN") @NotNull(message = "状态不能为空") TenantStatusEnum status) {
+        return success(baseService.updateStatus(ids, status));
     }
 
 
     /**
      * 初始化
-     *
      */
     @ApiOperation(value = "连接数据源", notes = "连接数据源")
     @PostMapping("/initConnect")

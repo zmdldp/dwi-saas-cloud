@@ -9,6 +9,8 @@ saas:
     token:
       - /ds/**
       - /**/noToken/**
+      - /verification
+      - /verification/send
 
 spring:
   autoconfigure:

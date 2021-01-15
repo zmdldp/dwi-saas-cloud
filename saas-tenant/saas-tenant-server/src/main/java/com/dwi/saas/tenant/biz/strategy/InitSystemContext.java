@@ -3,6 +3,7 @@ package com.dwi.saas.tenant.biz.strategy;
 import cn.hutool.core.util.StrUtil;
 import com.dwi.basic.database.properties.DatabaseProperties;
 import com.dwi.basic.utils.BizAssert;
+import com.dwi.saas.tenant.biz.strategy.InitSystemStrategy;
 import com.dwi.saas.tenant.domain.dto.TenantConnectDTO;
 
 import org.springframework.stereotype.Component;

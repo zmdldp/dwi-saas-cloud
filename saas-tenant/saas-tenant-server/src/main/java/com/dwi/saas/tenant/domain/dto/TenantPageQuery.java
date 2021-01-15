@@ -13,9 +13,9 @@ import lombok.experimental.Accessors;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 
+import com.dwi.saas.tenant.domain.enumeration.TenantTypeEnum;
 import com.dwi.saas.tenant.domain.enumeration.TenantConnectTypeEnum;
 import com.dwi.saas.tenant.domain.enumeration.TenantStatusEnum;
-import com.dwi.saas.tenant.domain.enumeration.TenantTypeEnum;
 
 /**
  * <p>

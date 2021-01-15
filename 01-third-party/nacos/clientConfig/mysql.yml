@@ -130,7 +130,7 @@ mybatis-plus:
 seata:
   enabled: ${saas.database.isSeata}
   enableAutoDataSourceProxy: true
-  tx-service-group: saas_admin_seata_tx_group
+  tx-service-group: saas_cloud_seata_tx_group
   registry:
     type: nacos
     nacos:

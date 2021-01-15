@@ -3,7 +3,7 @@ server:
 
 saas:
   swagger:
-    enabled: true
+    #enabled: true
     title: 认证服务
     base-package: com.dwi.saas
   authentication:

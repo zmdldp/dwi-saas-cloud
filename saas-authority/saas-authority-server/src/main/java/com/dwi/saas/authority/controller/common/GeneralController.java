@@ -12,15 +12,7 @@ import com.dwi.saas.authority.domain.enumeration.auth.AuthorizeType;
 import com.dwi.saas.authority.domain.enumeration.auth.Sex;
 import com.dwi.saas.authority.domain.enumeration.common.LogType;
 import com.dwi.saas.common.enums.HttpMethod;
-//import com.dwi.saas.file.enumeration.DataType;
-//import com.dwi.saas.msg.enumeration.MsgBizType;
-//import com.dwi.saas.msg.enumeration.MsgType;
-//import com.dwi.saas.sms.enumeration.ProviderType;
-//import com.dwi.saas.sms.enumeration.SendStatus;
-//import com.dwi.saas.sms.enumeration.SourceType;
-//import com.dwi.saas.sms.enumeration.TaskStatus;
-import com.dwi.saas.tenant.domain.enumeration.TenantStatusEnum;
-//import com.dwi.saas.tenant.domain.enumeration.TenantTypeEnum;
+import com.dwi.saas.tenant.init.domain.enumeration.TenantStatusEnum;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
