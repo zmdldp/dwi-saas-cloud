@@ -20,10 +20,8 @@ import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
-import static com.dwi.saas.common.constant.InjectionFieldConstants.DICTIONARY_ITEM_FEIGN_CLASS;
+import static com.dwi.saas.common.constant.InjectionFieldConstants.AUTHORITY_INJECTION_FEIGN_CLASS;
 import static com.dwi.saas.common.constant.InjectionFieldConstants.DICTIONARY_ITEM_METHOD;
-import static com.dwi.saas.common.constant.InjectionFieldConstants.ORG_ID_FEIGN_CLASS;
-import static com.dwi.saas.common.constant.InjectionFieldConstants.USER_ID_FEIGN_CLASS;
 import static com.dwi.saas.common.constant.InjectionFieldConstants.USER_ID_NAME_METHOD;
 
 /**
@@ -75,7 +73,7 @@ public class ProductPageQuery implements Serializable {
      * @InjectionField(api = DICTIONARY_ITEM_FEIGN_CLASS, method = DICTIONARY_ITEM_METHOD, dictType = DictionaryType.EDUCATION) RemoteData<String, String>
      */
     @ApiModelProperty(value = "学历")
-    @InjectionField(api = DICTIONARY_ITEM_FEIGN_CLASS, method = DICTIONARY_ITEM_METHOD, dictType = DictionaryType.EDUCATION)
+    @InjectionField(api = AUTHORITY_INJECTION_FEIGN_CLASS, method = DICTIONARY_ITEM_METHOD, dictType = DictionaryType.EDUCATION)
     private RemoteData<String, String> type3;
     /**
      * 状态
@@ -126,7 +124,7 @@ public class ProductPageQuery implements Serializable {
      * @InjectionField(api = USER_ID_FEIGN_CLASS, method = USER_ID_NAME_METHOD) RemoteData<Long, String>
      */
     @ApiModelProperty(value = "用户")
-    @InjectionField(api = USER_ID_FEIGN_CLASS, method = USER_ID_NAME_METHOD)
+    @InjectionField(api = AUTHORITY_INJECTION_FEIGN_CLASS, method = USER_ID_NAME_METHOD)
     private RemoteData<Long, String> user;
     /**
      * 组织
@@ -134,7 +132,7 @@ public class ProductPageQuery implements Serializable {
      * @InjectionField(api = ORG_ID_FEIGN_CLASS, method = "findOrgNameByIds") RemoteData<Long, String>
      */
     @ApiModelProperty(value = "组织")
-    @InjectionField(api = ORG_ID_FEIGN_CLASS, method = "findOrgNameByIds")
+    @InjectionField(api = AUTHORITY_INJECTION_FEIGN_CLASS, method = "findOrgNameByIds")
     private RemoteData<Long, String> org;
 
 }

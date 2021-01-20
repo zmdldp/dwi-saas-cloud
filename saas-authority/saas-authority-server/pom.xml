@@ -12,19 +12,19 @@
 
     <artifactId>saas-authority-server</artifactId>
     <name>${project.artifactId}</name>
-    <description>资源权限服务</description>
+    <description>用户资源权限服务</description>
 
     <dependencies>
+    
+    	<dependency>
+            <groupId>com.dwi.saas</groupId>
+            <artifactId>saas-authority-api</artifactId>
+            <version>${saas-project.version}</version>
+        </dependency>    
     
         <dependency>
             <groupId>com.dwi.saas</groupId>
             <artifactId>saas-tenant-datasource</artifactId>
-            <version>${saas-project.version}</version>
-        </dependency>
-    
-   	    <dependency>
-            <groupId>com.dwi.saas</groupId>
-            <artifactId>saas-common</artifactId>
             <version>${saas-project.version}</version>
         </dependency>
         
@@ -113,10 +113,6 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>cn.afterturn</groupId>
-            <artifactId>easypoi-spring-boot-starter</artifactId>
         </dependency>
 
         <dependency>

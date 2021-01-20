@@ -21,11 +21,11 @@ import com.dwi.basic.model.RemoteData;
 import com.dwi.basic.security.feign.UserQuery;
 import com.dwi.basic.security.model.SysUser;
 import com.dwi.basic.utils.StrPool;
-//import com.dwi.saas.authority.api.UserBizApi;
+import com.dwi.saas.authority.UserApi;
 import com.dwi.saas.authority.biz.service.auth.UserService;
 import com.dwi.saas.authority.biz.service.common.DictionaryService;
 import com.dwi.saas.authority.biz.service.core.OrgService;
-import com.dwi.saas.authority.controller.poi.ExcelUserVerifyHandlerImpl;
+import com.dwi.saas.authority.biz.service.poi.ExcelUserVerifyHandlerImpl;
 import com.dwi.saas.authority.domain.dto.auth.UserExcelVO;
 import com.dwi.saas.authority.domain.dto.auth.UserPageQuery;
 import com.dwi.saas.authority.domain.dto.auth.UserRoleDTO;
@@ -80,7 +80,8 @@ import java.util.stream.Collectors;
 @Api(value = "User", tags = "用户")
 @PreAuth(replace = "authority:user:")
 @RequiredArgsConstructor
-public class UserController extends SuperCacheController<UserService, Long, User, UserPageQuery, UserSaveDTO, UserUpdateDTO> {
+public class UserController extends SuperCacheController<UserService, Long, User, UserPageQuery, UserSaveDTO, UserUpdateDTO> 
+	implements UserApi{
     private final OrgService orgService;
     private final ExcelUserVerifyHandlerImpl excelUserVerifyHandler;
     private final DictionaryService dictionaryService;
@@ -125,43 +126,6 @@ public class UserController extends SuperCacheController<UserService, Long, User
         return success(user);
     }
     
-    /**
-     * 根据用户ID查询缓存用户信息 ADD 2020-12-16
-     * 
-     * @param userId
-     * @return
-     */
-    @ApiOperation(value = "根据用户ID查询缓存用户信息", notes = "根据用户ID查询缓存用户信息")
-    @GetMapping(value = "/getByIdCache")
-    public R<User> getByIdCache(Long userId) {
-    	return success(baseService.getByIdCache(userId));
-    }
-    
-    /**
-     * 根据用户ID查询数据权限 ADD 2020-12-16
-     * 
-     * @param userId
-     * @return
-     */
-	/*
-	 * @ApiOperation(value = "根据用户ID查询数据权限", notes = "根据用户ID查询数据权限")
-	 * 
-	 * @GetMapping(value = "/getDataScopeById") public R<Map<String, Object>>
-	 * getDataScopeById(Long userId) { return
-	 * success(baseService.getDataScopeById(userId)); }
-	 */
-    
-    /**
-     * 查询账户关联用户 ADD 2020-12-16
-     * 
-     * @param account
-     * @return
-     */
-    @ApiOperation(value = "查询账户关联用户", notes = "查询账户关联用户")
-    @GetMapping(value = "/findUserByAccount")
-    public R<User> getByAccount(String account) {
-    	return success(baseService.getByAccount(account));
-    }
 
     /**
      * 修改
@@ -236,15 +200,6 @@ public class UserController extends SuperCacheController<UserService, Long, User
         return success(UserRoleDTO.builder().idList(idList).userList(list).build());
     }
 
-
-    @ApiOperation(value = "查询所有用户", notes = "查询所有用户")
-    @GetMapping("/find")
-    @SysLog("查询所有用户")
-    //@Override
-    public R<List<Long>> findAllUserId() {
-        return success(baseService.findAllUserId());
-    }
-
     @ApiOperation(value = "查询所有用户实体", notes = "查询所有用户实体")
     @GetMapping("/findAll")
     @SysLog("查询所有用户")
@@ -252,12 +207,6 @@ public class UserController extends SuperCacheController<UserService, Long, User
         List<User> res = baseService.list();
         res.forEach(obj -> obj.setPassword(null));
         return success(res);
-    }
-
-    //@Override
-    @RequestMapping(value = "/findUserById", method = RequestMethod.GET)
-    public R<List<User>> findUserById(@RequestParam(value = "ids") List<Long> ids) {
-        return this.success(baseService.findUserById(ids));
     }
 
     @Override
@@ -345,7 +294,6 @@ public class UserController extends SuperCacheController<UserService, Long, User
         page.getRecords().forEach(item -> item.setPassword(null));
     }
     
-    // move from Oauth
     
     /**
      * 单体查询用户
@@ -358,6 +306,19 @@ public class UserController extends SuperCacheController<UserService, Long, User
     public R<SysUser> getById(@PathVariable Long id, @RequestBody UserQuery query) {
         return R.success(baseService.getSysUserById(id, query));
     }
+    
+    
+    /**
+     * 根据用户ID查询缓存用户信息 ADD 2020-12-16
+     * 
+     * @param userId
+     * @return
+     */
+    @ApiOperation(value = "根据用户ID查询缓存用户信息", notes = "根据用户ID查询缓存用户信息")
+    @Override
+    public R<User> getByIdCache(Long userId) {
+    	return success(baseService.getByIdCache(userId));
+    }
 
     /**
      * 根据用户id，查询用户权限范围
@@ -365,8 +326,34 @@ public class UserController extends SuperCacheController<UserService, Long, User
      * @param id 用户id
      */
     @ApiOperation(value = "查询用户权限范围", notes = "根据用户id，查询用户权限范围")
-    @GetMapping(value = "/ds/{id}")
+    @Override
     public Map<String, Object> getDataScopeById(@PathVariable("id") Long id) {
         return baseService.getDataScopeById(id);
     }
+    
+    @ApiOperation(value = "查询所有用户", notes = "查询所有用户")
+    @SysLog("查询所有用户")
+    @Override
+    public R<List<Long>> findAllUserId() {
+        return success(baseService.findAllUserId());
+    }
+    
+    /**
+     * 查询账户关联用户 ADD 2020-12-16
+     * 
+     * @param account
+     * @return
+     */
+    @ApiOperation(value = "查询账户关联用户", notes = "查询账户关联用户")
+    @Override
+    public R<User> getByAccount(String account) {
+    	return success(baseService.getByAccount(account));
+    }
+    
+    @ApiOperation(value = "根据id集合查询所有的用户", notes = "根据id集合查询所有的用户")
+    @Override
+    public R<List<User>> findUserById(@RequestParam(value = "ids") List<Long> ids) {
+        return this.success(baseService.findUserById(ids));
+    }
+
 }

@@ -11,6 +11,7 @@ import com.dwi.basic.base.controller.SuperSimpleController;
 import com.dwi.basic.base.request.PageParams;
 import com.dwi.basic.log.entity.OptLogDTO;
 import com.dwi.basic.utils.BeanPlusUtil;
+import com.dwi.saas.authority.LogApi;
 import com.dwi.saas.authority.biz.service.common.OptLogService;
 import com.dwi.saas.authority.domain.dto.common.OptLogResult;
 import com.dwi.saas.authority.domain.entity.common.OptLog;
@@ -51,7 +52,8 @@ import static com.dwi.saas.common.constant.SwaggerConstants.PARAM_TYPE_QUERY;
 @Api(value = "OptLog", tags = "系统日志")
 @PreAuth(replace = "authority:optLog:")
 public class OptLogController extends SuperSimpleController<OptLogService, OptLog>
-        implements DeleteController<OptLog, Long>, PoiController<OptLog, OptLog> {
+        implements DeleteController<OptLog, Long>, PoiController<OptLog, OptLog>,
+        LogApi {
 
     @ApiOperation(value = "分页列表查询")
     @PostMapping(value = "/page")
@@ -109,7 +111,6 @@ public class OptLogController extends SuperSimpleController<OptLogService, OptLo
         return success(baseService.clearLog(clearBeforeTime, clearBeforeNum));
     }
     
-    //move from Oauth
     
     /**
      * 保存系统日志
@@ -119,9 +120,10 @@ public class OptLogController extends SuperSimpleController<OptLogService, OptLo
      */
     @PostMapping
     @ApiOperation(value = "保存系统日志", notes = "保存系统日志不为空的字段")
-    public R<OptLog> save(@RequestBody OptLogDTO data) {
-        baseService.save(data);
-        return R.success(BeanPlusUtil.toBean(data, OptLog.class));
+    @Override
+    public R<OptLog> save(@RequestBody OptLogDTO log) {
+        baseService.save(log);
+        return R.success(BeanPlusUtil.toBean(log, OptLog.class));
     }
 
 }

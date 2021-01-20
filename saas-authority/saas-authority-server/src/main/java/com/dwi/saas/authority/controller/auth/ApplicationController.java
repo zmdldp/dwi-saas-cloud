@@ -6,6 +6,7 @@ import com.github.xiaoymin.knife4j.annotations.ApiSupport;
 import com.dwi.basic.annotation.security.PreAuth;
 import com.dwi.basic.base.R;
 import com.dwi.basic.base.controller.SuperCacheController;
+import com.dwi.saas.authority.ApplicationApi;
 import com.dwi.saas.authority.biz.service.auth.ApplicationService;
 import com.dwi.saas.authority.domain.dto.auth.ApplicationPageQuery;
 import com.dwi.saas.authority.domain.dto.auth.ApplicationSaveDTO;
@@ -37,7 +38,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Api(value = "Application", tags = "应用")
 @ApiSupport(author = "dwi")
 @PreAuth(replace = "authority:application:")
-public class ApplicationController extends SuperCacheController<ApplicationService, Long, Application, ApplicationPageQuery, ApplicationSaveDTO, ApplicationUpdateDTO> {
+public class ApplicationController extends SuperCacheController<ApplicationService, Long, Application, ApplicationPageQuery, ApplicationSaveDTO, ApplicationUpdateDTO>
+ implements ApplicationApi{
 
     @Override
     public R<Application> handlerSave(ApplicationSaveDTO applicationSaveDTO) {
@@ -45,6 +47,7 @@ public class ApplicationController extends SuperCacheController<ApplicationServi
         applicationSaveDTO.setClientSecret(RandomUtil.randomString(32));
         return super.handlerSave(applicationSaveDTO);
     }
+
     
     /**
      * 查询客户端应用信息 ADD 2020-12-16
@@ -54,7 +57,7 @@ public class ApplicationController extends SuperCacheController<ApplicationServi
      * @return
      */
     @ApiOperation(value = "查询客户端应用信息", notes = "查询客户端应用信息")
-    @GetMapping(value = "/findByClient")
+    @Override
     public R<Application> getApplicationByClient(String clientId, String clientSecret) {
     	return success(baseService.getByClient(clientId, clientSecret));
     }

@@ -2,16 +2,14 @@
 //
 //import com.dwi.basic.annotation.security.PreAuth;
 //import com.dwi.basic.base.R;
+//import com.dwi.saas.authority.OnlineApi;
 //import com.dwi.saas.authority.biz.service.auth.OnlineService;
 //import com.dwi.saas.authority.domain.dto.auth.Online;
-//import com.dwi.saas.authority.domain.entity.auth.Application;
-//
 //import io.swagger.annotations.Api;
 //import io.swagger.annotations.ApiOperation;
 //import lombok.RequiredArgsConstructor;
 //import lombok.extern.slf4j.Slf4j;
 //import org.springframework.validation.annotation.Validated;
-//import org.springframework.web.bind.annotation.GetMapping;
 //import org.springframework.web.bind.annotation.PostMapping;
 //import org.springframework.web.bind.annotation.PutMapping;
 //import org.springframework.web.bind.annotation.RequestBody;
@@ -38,7 +36,7 @@
 //@Api(value = "OnlineController", tags = "在线用户")
 //@PreAuth(replace = "authority:online:")
 //@RequiredArgsConstructor
-//public class OnlineController {
+//public class OnlineController implements OnlineApi{
 //    private final OnlineService onlineService;
 //
 //    @PostMapping(value = "/list")
@@ -61,7 +59,7 @@
 //     * @return
 //     */
 //    @ApiOperation(value = "保存在线用户信息", notes = "保存在线用户信息")
-//    @PutMapping()
+//    @Override
 //    public R<Boolean> saveOnlineInfo(@RequestBody Online model) {	
 //    	return R.success(onlineService.save(model));
 //    }

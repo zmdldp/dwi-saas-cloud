@@ -15,6 +15,19 @@
     <description>文件服务启动模块</description>
 
     <dependencies>
+    
+    	<dependency>
+            <groupId>com.dwi.saas</groupId>
+            <artifactId>saas-file-api</artifactId>
+            <version>${saas-project.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.dwi.saas</groupId>
+            <artifactId>saas-authority-api</artifactId>
+            <version>${saas-project.version}</version>
+        </dependency>
+        
         <dependency>
             <groupId>com.dwi.saas</groupId>
             <artifactId>saas-tenant-datasource</artifactId>
@@ -28,11 +41,6 @@
         </dependency>
         
         <dependency>
-            <groupId>com.dwi.saas</groupId>
-            <artifactId>saas-authority-api</artifactId>
-            <version>${saas-project.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.dwi.basic</groupId>
             <artifactId>saas-security-starter</artifactId>
         </dependency>
@@ -41,12 +49,6 @@
             <groupId>com.dwi.basic</groupId>
             <artifactId>saas-log-starter</artifactId>
         </dependency>
-        
-        <!-- <dependency>
-            <groupId>com.dwi.saas</groupId>
-            <artifactId>saas-file-controller</artifactId>
-            <version>${saas-project.version}</version>
-        </dependency> -->
         
         <dependency>
             <groupId>com.dwi.basic</groupId>
@@ -105,11 +107,6 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.afterturn</groupId>
-            <artifactId>easypoi-spring-boot-starter</artifactId>
         </dependency>
         
         <!-- 阿里云oss -->

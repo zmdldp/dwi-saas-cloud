@@ -20,9 +20,8 @@ import org.hibernate.validator.constraints.Length;
 import java.time.LocalDateTime;
 
 import static com.baomidou.mybatisplus.annotation.SqlCondition.LIKE;
-import static com.dwi.saas.common.constant.InjectionFieldConstants.DICTIONARY_ITEM_FEIGN_CLASS;
+import static com.dwi.saas.common.constant.InjectionFieldConstants.AUTHORITY_INJECTION_FEIGN_CLASS;
 import static com.dwi.saas.common.constant.InjectionFieldConstants.DICTIONARY_ITEM_METHOD;
-import static com.dwi.saas.common.constant.InjectionFieldConstants.ORG_ID_FEIGN_CLASS;
 import static com.dwi.saas.common.constant.InjectionFieldConstants.ORG_ID_NAME_METHOD;
 
 /**
@@ -87,7 +86,7 @@ public class Order extends Entity<Long> {
     @ApiModelProperty(value = "民族")
     @Length(max = 255, message = "民族长度不能超过255")
     @TableField(value = "nation", condition = LIKE)
-    @InjectionField(api = DICTIONARY_ITEM_FEIGN_CLASS, method = DICTIONARY_ITEM_METHOD, dictType = DictionaryType.NATION)
+    @InjectionField(api = AUTHORITY_INJECTION_FEIGN_CLASS, method = DICTIONARY_ITEM_METHOD, dictType = DictionaryType.NATION)
     @ExcelEntity(name = "")
     @Excel(name = "民族")
     private RemoteData<String, String> nation;
@@ -100,7 +99,7 @@ public class Order extends Entity<Long> {
      */
     @ApiModelProperty(value = "组织ID")
     @TableField("org_id")
-    @InjectionField(api = ORG_ID_FEIGN_CLASS, method = ORG_ID_NAME_METHOD)
+    @InjectionField(api = AUTHORITY_INJECTION_FEIGN_CLASS, method = ORG_ID_NAME_METHOD)
     @ExcelEntity(name = "")
     @Excel(name = "组织ID")
     private RemoteData<Long, String> org;

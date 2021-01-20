@@ -40,30 +40,12 @@
             <groupId>com.dwi.basic</groupId>
             <artifactId>saas-log-starter</artifactId>
         </dependency>
-
-        
-       <!--  <dependency>
-            <groupId>com.dwi.saas</groupId>
-            <artifactId>saas-sms-controller</artifactId>
-            <version>${saas-project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.dwi.saas</groupId>
-            <artifactId>saas-msg-controller</artifactId>
-            <version>${saas-project.version}</version>
-        </dependency> -->
         
         <dependency>
             <groupId>com.dwi.saas</groupId>
             <artifactId>saas-authority-api</artifactId>
             <version>${saas-project.version}</version>
         </dependency>
-        
-        <!-- <dependency>
-            <groupId>com.dwi.saas</groupId>
-            <artifactId>saas-oauth-api</artifactId>
-            <version>${saas-project.version}</version>
-        </dependency> -->
         
          <dependency>
             <groupId>com.dwi.basic</groupId>

@@ -18,9 +18,8 @@ import org.hibernate.validator.constraints.Length;
 import javax.validation.constraints.NotNull;
 import java.io.Serializable;
 
-import static com.dwi.saas.common.constant.InjectionFieldConstants.DICTIONARY_ITEM_FEIGN_CLASS;
+import static com.dwi.saas.common.constant.InjectionFieldConstants.AUTHORITY_INJECTION_FEIGN_CLASS;
 import static com.dwi.saas.common.constant.InjectionFieldConstants.DICTIONARY_ITEM_METHOD;
-import static com.dwi.saas.common.constant.InjectionFieldConstants.ORG_ID_FEIGN_CLASS;
 import static com.dwi.saas.common.constant.InjectionFieldConstants.ORG_ID_NAME_METHOD;
 
 /**
@@ -70,7 +69,7 @@ public class OrderUpdateDTO implements Serializable {
      */
     @ApiModelProperty(value = "民族")
     @Length(max = 255, message = "民族长度不能超过255")
-    @InjectionField(api = DICTIONARY_ITEM_FEIGN_CLASS, method = DICTIONARY_ITEM_METHOD, dictType = DictionaryType.NATION)
+    @InjectionField(api = AUTHORITY_INJECTION_FEIGN_CLASS, method = DICTIONARY_ITEM_METHOD, dictType = DictionaryType.NATION)
     private RemoteData<String, String> nation;
     /**
      * 组织ID
@@ -79,7 +78,7 @@ public class OrderUpdateDTO implements Serializable {
      * @InjectionField(api = ORG_ID_FEIGN_CLASS, method = ORG_ID_NAME_METHOD) RemoteData<Long, String>
      */
     @ApiModelProperty(value = "组织ID")
-    @InjectionField(api = ORG_ID_FEIGN_CLASS, method = ORG_ID_NAME_METHOD)
+    @InjectionField(api = AUTHORITY_INJECTION_FEIGN_CLASS, method = ORG_ID_NAME_METHOD)
     private RemoteData<Long, String> org;
     /**
      * 编号

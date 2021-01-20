@@ -15,22 +15,11 @@
 
     <dependencies>
         <!--业务相关-->
-        <!-- <dependency>
-            <groupId>com.dwi.saas</groupId>
-            <artifactId>saas-activiti-controller</artifactId>
-            <version>${saas-project.version}</version>
-        </dependency> -->
-
 		<dependency>
             <groupId>com.dwi.saas</groupId>
             <artifactId>saas-common</artifactId>
             <version>${saas-project.version}</version>
         </dependency>
-        
-       <!--  <dependency>
-            <groupId>org.activiti</groupId>
-            <artifactId>activiti-spring-boot-starter-basic</artifactId>
-        </dependency> -->
         
          <dependency>
             <groupId>com.dwi.basic</groupId>

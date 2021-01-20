@@ -19,6 +19,7 @@ import com.dwi.saas.file.domain.dto.AttachmentRemoveDTO;
 import com.dwi.saas.file.domain.dto.AttachmentResultDTO;
 import com.dwi.saas.file.domain.dto.FilePageReqDTO;
 import com.dwi.saas.file.domain.entity.Attachment;
+import com.dwi.saas.file.AttachmentApi;
 import com.dwi.saas.file.biz.service.AttachmentService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;
@@ -70,7 +71,8 @@ import static java.util.stream.Collectors.groupingBy;
 @SysLog(enabled = false)
 @PreAuth(replace = "file:attachment:")
 public class AttachmentController extends SuperSimpleController<AttachmentService, Attachment>
-        implements QueryController<Attachment, Long, FilePageReqDTO>, DeleteController<Attachment, Long> {
+        implements QueryController<Attachment, Long, FilePageReqDTO>, DeleteController<Attachment, Long>, 
+		 AttachmentApi{
 
     /**
      * 业务类型判断符
@@ -98,9 +100,11 @@ public class AttachmentController extends SuperSimpleController<AttachmentServic
             @ApiImplicitParam(name = "bizType", value = "业务类型", dataType = DATA_TYPE_STRING, paramType = PARAM_TYPE_QUERY),
             @ApiImplicitParam(name = "file", value = "附件", dataType = DATA_TYPE_MULTIPART_FILE, allowMultiple = true, required = true),
     })
-    @PostMapping(value = "/upload")
+    
+    //@PostMapping(value = "/upload")
     @SysLog("上传附件")
     @PreAuth("hasAnyPermission('{}add')")
+    @Override
     public R<AttachmentDTO> upload(
             @RequestParam(value = "file") MultipartFile file,
             @RequestParam(value = "isSingle", required = false, defaultValue = "false") Boolean isSingle,

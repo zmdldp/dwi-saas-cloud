@@ -6,9 +6,8 @@ import com.dwi.basic.exception.BizException;
 import com.dwi.basic.jwt.TokenUtil;
 import com.dwi.basic.jwt.model.AuthInfo;
 import com.dwi.basic.utils.SpringUtils;
-import com.dwi.saas.authority.api.ApplicationBizApi;
-//import com.dwi.saas.authority.api.OnlineBizApi;
-import com.dwi.saas.authority.api.UserBizApi;
+import com.dwi.saas.authority.ApplicationApi;
+import com.dwi.saas.authority.UserApi;
 //import com.dwi.saas.authority.api.domain.LoginParamDTO;
 //import com.dwi.saas.authority.biz.service.auth.ApplicationService;
 //import com.dwi.saas.authority.biz.service.auth.OnlineService;
@@ -39,11 +38,11 @@ public class CaptchaTokenGranter extends AbstractTokenGranter implements TokenGr
     public static final String GRANT_TYPE = "captcha";
     private final ValidateCodeService validateCodeService;
 
-    public CaptchaTokenGranter(TokenUtil tokenUtil, UserBizApi userBizApi,
-    						   TenantApi tenantApi, ApplicationBizApi applicationBizApi,
+    public CaptchaTokenGranter(TokenUtil tokenUtil, UserApi userApi,
+    						   TenantApi tenantApi, ApplicationApi applicationApi,
                                DatabaseProperties databaseProperties, ValidateCodeService validateCodeService,
                                OnlineService onlineService) {
-        super(tokenUtil, userBizApi, tenantApi, applicationBizApi, databaseProperties, onlineService);
+        super(tokenUtil, userApi, tenantApi, applicationApi, databaseProperties, onlineService);
         this.validateCodeService = validateCodeService;
     }
 

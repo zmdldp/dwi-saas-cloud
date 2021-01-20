@@ -2,7 +2,7 @@ package com.dwi.saas.demo.config;
 
 import com.dwi.basic.boot.config.BaseConfig;
 import com.dwi.basic.log.event.SysLogListener;
-import com.dwi.saas.authority.api.LogApi;
+import com.dwi.saas.authority.LogApi;
 
 //import com.dwi.saas.oauth.api.LogApi;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;

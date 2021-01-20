@@ -1,9 +1,8 @@
 package com.dwi.saas.demo.controller.test;
 
 import com.dwi.basic.base.R;
-import com.dwi.saas.file.api.AttachmentApi;
-//import com.dwi.saas.file.domain.dto.AttachmentDTO;
-import com.dwi.saas.file.api.domain.AttachmentDTO;
+import com.dwi.saas.file.AttachmentApi;
+import com.dwi.saas.file.domain.dto.AttachmentDTO;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;

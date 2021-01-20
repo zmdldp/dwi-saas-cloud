@@ -7,6 +7,7 @@ import com.dwi.basic.base.R;
 import com.dwi.basic.base.controller.SuperController;
 import com.dwi.basic.database.mybatis.conditions.Wraps;
 import com.dwi.basic.utils.TreeUtil;
+import com.dwi.saas.authority.ParameterApi;
 import com.dwi.saas.authority.biz.service.common.ParameterService;
 import com.dwi.saas.authority.domain.dto.common.ParameterPageQuery;
 import com.dwi.saas.authority.domain.dto.common.ParameterSaveDTO;
@@ -40,7 +41,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/parameter")
 @Api(value = "Parameter", tags = "参数配置")
 @PreAuth(replace = "authority:parameter:")
-public class ParameterController extends SuperController<ParameterService, Long, Parameter, ParameterPageQuery, ParameterSaveDTO, ParameterUpdateDTO> {
+public class ParameterController extends SuperController<ParameterService, Long, Parameter, ParameterPageQuery, ParameterSaveDTO, ParameterUpdateDTO> 
+	implements ParameterApi{
 
 	
 	 /**
@@ -48,8 +50,8 @@ public class ParameterController extends SuperController<ParameterService, Long,
      *
      */
     @ApiOperation(value = "根据key查询参数值", notes = "根据key查询参数值")
-    @GetMapping("/getValue")
     @SysLog("查询参数值")
+    @Override
     public R<String> getValue(String key, String defVal) {
     	String value = baseService.getValue(key, defVal);
         return success(value);

@@ -16,15 +16,22 @@
     <description>用户资源api模块</description>
     <dependencies>
         <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-          
-        <dependency>
             <groupId>com.dwi.basic</groupId>
             <artifactId>saas-core</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>com.dwi.saas</groupId>
+            <artifactId>saas-common</artifactId>
+            <version>${saas-project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.afterturn</groupId>
+            <artifactId>easypoi-spring-boot-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+        </dependency>
     </dependencies>
 
 </project>

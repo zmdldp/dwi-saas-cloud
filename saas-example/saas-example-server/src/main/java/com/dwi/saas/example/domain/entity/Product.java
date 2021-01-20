@@ -27,10 +27,8 @@ import java.time.LocalDateTime;
 
 import static com.baomidou.mybatisplus.annotation.SqlCondition.LIKE;
 import static com.dwi.basic.utils.DateUtils.DEFAULT_DATE_TIME_FORMAT;
-import static com.dwi.saas.common.constant.InjectionFieldConstants.DICTIONARY_ITEM_FEIGN_CLASS;
+import static com.dwi.saas.common.constant.InjectionFieldConstants.AUTHORITY_INJECTION_FEIGN_CLASS;
 import static com.dwi.saas.common.constant.InjectionFieldConstants.DICTIONARY_ITEM_METHOD;
-import static com.dwi.saas.common.constant.InjectionFieldConstants.ORG_ID_FEIGN_CLASS;
-import static com.dwi.saas.common.constant.InjectionFieldConstants.USER_ID_FEIGN_CLASS;
 import static com.dwi.saas.common.constant.InjectionFieldConstants.USER_ID_NAME_METHOD;
 
 /**
@@ -97,7 +95,7 @@ public class Product extends Entity<Long> {
     @ApiModelProperty(value = "学历")
     @Length(max = 255, message = "学历长度不能超过255")
     @TableField(value = "type3", condition = LIKE)
-    @InjectionField(api = DICTIONARY_ITEM_FEIGN_CLASS, method = DICTIONARY_ITEM_METHOD, dictType = DictionaryType.EDUCATION)
+    @InjectionField(api = AUTHORITY_INJECTION_FEIGN_CLASS, method = DICTIONARY_ITEM_METHOD, dictType = DictionaryType.EDUCATION)
     @ExcelEntity
     @Excel(name = "学历")
     private RemoteData<String, String> type3;
@@ -179,7 +177,7 @@ public class Product extends Entity<Long> {
      */
     @ApiModelProperty(value = "用户")
     @TableField("user_id")
-    @InjectionField(api = USER_ID_FEIGN_CLASS, method = USER_ID_NAME_METHOD)
+    @InjectionField(api = AUTHORITY_INJECTION_FEIGN_CLASS, method = USER_ID_NAME_METHOD)
     @ExcelEntity
     @Excel(name = "用户")
     private RemoteData<Long, String> user;
@@ -191,7 +189,7 @@ public class Product extends Entity<Long> {
      */
     @ApiModelProperty(value = "组织")
     @TableField("org_id")
-    @InjectionField(api = ORG_ID_FEIGN_CLASS, method = "findOrgNameByIds")
+    @InjectionField(api = AUTHORITY_INJECTION_FEIGN_CLASS, method = "findOrgNameByIds")
     @ExcelEntity
     @Excel(name = "组织")
     private RemoteData<Long, String> org;

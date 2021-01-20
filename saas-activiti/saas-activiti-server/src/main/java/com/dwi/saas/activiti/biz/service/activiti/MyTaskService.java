@@ -12,8 +12,8 @@ import com.dwi.saas.activiti.biz.exception.MyException;
 import com.dwi.saas.activiti.domain.dto.activiti.InstantSelectReqDTO;
 import com.dwi.saas.activiti.domain.dto.activiti.TaskHiResDTO;
 import com.dwi.saas.activiti.domain.dto.activiti.TaskResDTO;
-import com.dwi.saas.authority.api.UserBizApi;
-import com.dwi.saas.authority.api.domain.User;
+import com.dwi.saas.authority.UserApi;
+import com.dwi.saas.authority.domain.entity.auth.User;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -46,7 +46,7 @@ public class MyTaskService {
     private final RuntimeService runtimeService;
     private final TaskService taskService;
     private final HistoryService historyService;
-    private final UserBizApi userBizApi;
+    private final UserApi userApi;
 
     /**
      * 查找需要处理的任务
@@ -180,7 +180,7 @@ public class MyTaskService {
         task.forEach(obj -> res.add(getTaskRes(obj)));
         if (CollUtil.isNotEmpty(res)) {
             List<Long> ids = res.stream().map(o -> Long.valueOf(o.getAssignee())).collect(Collectors.toList());
-            List<User> users = userBizApi.findUserById(new ArrayList<Long>() {{
+            List<User> users = userApi.findUserById(new ArrayList<Long>() {{
                 addAll(ids);
             }}).getData();
             if (CollUtil.isNotEmpty(users)) {

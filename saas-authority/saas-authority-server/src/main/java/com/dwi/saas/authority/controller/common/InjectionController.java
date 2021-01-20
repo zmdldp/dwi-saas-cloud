@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.dwi.saas.authority.InjectionApi;
 import com.dwi.saas.authority.biz.service.auth.UserService;
 import com.dwi.saas.authority.biz.service.common.DictionaryService;
 import com.dwi.saas.authority.biz.service.core.OrgService;
@@ -17,7 +18,6 @@ import java.io.Serializable;
 import java.util.Map;
 import java.util.Set;
 
-// move from Oauth
 /**
  * 数据注入的查询实现类
  *
@@ -28,7 +28,7 @@ import java.util.Set;
 @RestController
 @AllArgsConstructor
 @Api(value = "数据注入查询接口", tags = "数据注入查询接口， 不建议前端调用")
-public class InjectionController {
+public class InjectionController implements InjectionApi{
     private final DictionaryService dictionaryService;
     private final OrgService orgService;
     private final StationService stationService;
