@@ -2,8 +2,11 @@ package com.dwi.saas.oauth.biz.event.listener;
 
 import cn.hutool.core.util.StrUtil;
 import com.dwi.basic.context.ContextUtil;
-//import com.dwi.saas.authority.biz.service.auth.UserService;
-//import com.dwi.saas.authority.biz.service.common.LoginLogService;
+import com.dwi.basic.database.properties.DatabaseProperties;
+import com.dwi.basic.database.properties.MultiTenantType;
+import com.dwi.saas.authority.LoginLogApi;
+import com.dwi.saas.authority.UserApi;
+import com.dwi.saas.authority.domain.entity.common.LoginLog;
 import com.dwi.saas.oauth.biz.event.LoginEvent;
 import com.dwi.saas.oauth.biz.event.model.LoginStatusDTO;
 
@@ -23,35 +26,33 @@ import org.springframework.stereotype.Component;
 @Slf4j
 @RequiredArgsConstructor
 public class LoginListener {
-	//TODO 改造为Feign调用
-//    private final LoginLogService loginLogService;
-//    private final UserService userService;
+    private final LoginLogApi loginLogApi;
+    private final UserApi userApi;
+    private final DatabaseProperties databaseProperties;
 
     @Async
     @EventListener({LoginEvent.class})
     public void saveSysLog(LoginEvent event) {
         LoginStatusDTO loginStatus = (LoginStatusDTO) event.getSource();
 
-        if (StrUtil.isEmpty(loginStatus.getTenant())) {
+        if (!MultiTenantType.NONE.eq(databaseProperties.getMultiTenantType()) && StrUtil.isEmpty(loginStatus.getTenant())) {
             log.warn("忽略记录登录日志:{}", loginStatus);
             return;
         }
 
-        //TODO
         ContextUtil.setTenant(loginStatus.getTenant());
         if (LoginStatusDTO.Type.SUCCESS == loginStatus.getType()) {
             // 重置错误次数 和 最后登录时间
-        	//TODO 改造为Feign调用
-           // this.userService.resetPassErrorNum(loginStatus.getId());
+            this.userApi.resetPassErrorNum(loginStatus.getId());
 
 
         } else if (LoginStatusDTO.Type.PWD_ERROR == loginStatus.getType()) {
             // 密码错误
-        	//TODO 改造为Feign调用
-           // this.userService.incrPasswordErrorNumById(loginStatus.getId());
+            this.userApi.incrPasswordErrorNumById(loginStatus.getId());
         }
-        //TODO 改造为Feign调用
-        //loginLogService.save(loginStatus.getId(), loginStatus.getAccount(), loginStatus.getUa(), loginStatus.getIp(), loginStatus.getLocation(), loginStatus.getDescription());
+        loginLogApi.save(
+        		LoginLog.builder().id(loginStatus.getId()).account(loginStatus.getAccount()).ua(loginStatus.getUa())
+        		.requestIp(loginStatus.getIp()).location(loginStatus.getLocation()).description(loginStatus.getDescription()).build());
     }
 
 }

@@ -70,22 +70,24 @@ public class LoginLogServiceImpl extends SuperServiceImpl<LoginLogMapper, LoginL
     }
 
     @Override
-    public LoginLog save(Long userId, String account, String ua, String ip, String location, String description) {
-        User user;
-        if (userId != null) {
-            user = this.userService.getByIdCache(userId);
+    //public LoginLog save(Long userId, String account, String ua, String ip, String location, String description) {
+    public boolean save(LoginLog loginLogDto) {  
+    	User user;
+        if (loginLogDto.getUserId() != null) {
+            user = this.userService.getByIdCache(loginLogDto.getUserId());
         } else {
-            user = this.userService.getByAccount(account);
+            user = this.userService.getByAccount(loginLogDto.getAccount());
         }
 
         LoginLog loginLog = LoginLog.builder()
-                .location(location)
+                .location(loginLogDto.getLocation())
                 .loginDate(DateUtils.formatAsDate(LocalDateTime.now()))
-                .description(description)
-                .requestIp(ip).ua(ua)
+                .description(loginLogDto.getDescription())
+                .requestIp(loginLogDto.getRequestIp())
+                .ua(loginLogDto.getUa())
                 .build();
 
-        UserAgent userAgent = UserAgent.parseUserAgentString(ua);
+        UserAgent userAgent = UserAgent.parseUserAgentString(loginLogDto.getUa());
         Browser browser = userAgent.getBrowser();
         OperatingSystem operatingSystem = userAgent.getOperatingSystem();
         Version browserVersion = userAgent.getBrowserVersion();
@@ -124,7 +126,7 @@ public class LoginLogServiceImpl extends SuperServiceImpl<LoginLogMapper, LoginL
             CacheKey loginLogTenDayUserKey = new LoginLogTenDayCacheKeyBuilder().key(tenDaysAgo, user.getAccount());
             cacheOps.del(loginLogTenDayUserKey);
         }
-        return loginLog;
+        return true;
     }
 
     @Override

@@ -7,6 +7,7 @@ import com.dwi.saas.authority.hystrix.UserApiFallback;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
@@ -67,6 +68,10 @@ public interface UserApi {
     @GetMapping(value = "/findUserById")
     R<List<User>> findUserById(@RequestParam(value = "ids") List<Long> ids);
     
+    @PostMapping(value = "/resetPassErrorNum")
+    R<Boolean> resetPassErrorNum(@RequestParam("userId") Long userId);
     
+    @PostMapping(value = "/incrPasswordErrorNumById")
+    R<Boolean> incrPasswordErrorNumById(@RequestParam("userId") Long userId);
 
 }

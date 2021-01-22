@@ -356,4 +356,16 @@ public class UserController extends SuperCacheController<UserService, Long, User
         return this.success(baseService.findUserById(ids));
     }
 
+	@Override
+	public R<Boolean> resetPassErrorNum(Long userId) {
+		baseService.resetPassErrorNum(userId);
+		return success();
+	}
+
+	@Override
+	public R<Boolean> incrPasswordErrorNumById(Long userId) {
+		baseService.incrPasswordErrorNumById(userId);
+		return success();
+	}
+
 }

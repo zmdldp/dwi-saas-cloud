@@ -31,8 +31,8 @@ public interface LoginLogService extends SuperService<LoginLog> {
      * @param description 登陆描述消息
      * @return 登录日志
      */
-    LoginLog save(Long userId, String account, String ua, String ip, String location, String description);
-
+    //LoginLog save(Long userId, String account, String ua, String ip, String location, String description);	
+	//boolean save(LoginLog entity);
     /**
      * 获取系统总访问次数
      *

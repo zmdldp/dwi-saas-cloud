@@ -6,6 +6,7 @@ import com.dwi.saas.authority.domain.entity.auth.User;
 
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
@@ -38,9 +39,19 @@ public class UserApiFallback implements UserApi {
 	}
 
 	
-	  @Override 
-	  public Map<String, Object> getDataScopeById(Long userId) {
-		  return null; 
-	  }
+	@Override 
+	public Map<String, Object> getDataScopeById(Long userId) {
+		return Collections.emptyMap(); 
+	}
+
+	@Override
+	public R<Boolean> resetPassErrorNum(Long userId) {
+		return R.timeout();
+	}
+
+	@Override
+	public R<Boolean> incrPasswordErrorNumById(Long userId) {
+		return R.timeout();
+	}
 	 
 }

@@ -2,7 +2,7 @@ package com.dwi.saas.activiti.config;
 
 import com.dwi.basic.boot.config.BaseConfig;
 import com.dwi.basic.log.event.SysLogListener;
-import com.dwi.saas.authority.LogApi;
+import com.dwi.saas.authority.OptLogApi;
 
 //import com.dwi.saas.oauth.api.LogApi;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnExpression;
@@ -22,7 +22,7 @@ public class ActivitiWebConfiguration extends BaseConfig {
      */
     @Bean
     @ConditionalOnExpression("${saas.log.enabled:true} && 'DB'.equals('${saas.log.type:LOGGER}')")
-    public SysLogListener sysLogListener(LogApi logApi) {
-        return new SysLogListener(logApi::save);
+    public SysLogListener sysLogListener(OptLogApi optLogApi) {
+        return new SysLogListener(optLogApi::save);
     }
 }

@@ -2,10 +2,8 @@ package com.dwi.saas.authority;
 
 
 import com.dwi.basic.base.R;
-import com.dwi.basic.log.entity.OptLogDTO;
-import com.dwi.saas.authority.domain.entity.common.OptLog;
-import com.dwi.saas.authority.hystrix.LogApiHystrix;
-
+import com.dwi.saas.authority.domain.entity.common.LoginLog;
+import com.dwi.saas.authority.hystrix.LoginLogApiHystrix;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,8 +15,8 @@ import org.springframework.web.bind.annotation.RequestBody;
  * @date 2019/07/02
  */
 @FeignClient(name = "${saas.feign.authority-server:saas-authority-server}",
-		path = "/optLog", fallback = LogApiHystrix.class, qualifier = "logApi")
-public interface LogApi {
+		path = "/loginLog", fallback = LoginLogApiHystrix.class, qualifier = "loginLogApi")
+public interface LoginLogApi {
 
     /**
      * 保存日志
@@ -27,6 +25,6 @@ public interface LogApi {
      * @return 操作日志
      */
     @PostMapping
-    R<OptLog> save(@RequestBody OptLogDTO log);
+    R<LoginLog> save(@RequestBody LoginLog loginLog);
 
 }

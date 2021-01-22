@@ -2,7 +2,7 @@ package com.dwi.saas.authority.hystrix;
 
 import com.dwi.basic.base.R;
 import com.dwi.basic.log.entity.OptLogDTO;
-import com.dwi.saas.authority.LogApi;
+import com.dwi.saas.authority.OptLogApi;
 import com.dwi.saas.authority.domain.entity.common.OptLog;
 
 import org.springframework.stereotype.Component;
@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @date 2019/07/02
  */
 @Component
-public class LogApiHystrix implements LogApi {
+public class OptLogApiHystrix implements OptLogApi {
     @Override
     public R<OptLog> save(OptLogDTO log) {
         return R.timeout();
