@@ -30,8 +30,7 @@
         <module>saas-support</module>
         <!-- 3.0.0版本暂时移除jobs -->
         <!-- 以下为测试模块 -->
-        <module>saas-demo</module>
-        <module>saas-example</module>
+        <module>saas-business</module>
     </modules>
 
     <properties>

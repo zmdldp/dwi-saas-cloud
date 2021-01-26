@@ -98,12 +98,6 @@
             <groupId>com.dwi.basic</groupId>
             <artifactId>saas-jwt-starter</artifactId>
         </dependency>
-        
-        <!-- <dependency>
-            <groupId>com.dwi.saas</groupId>
-            <artifactId>saas-example-controller</artifactId>
-            <version>${saas-project.version}</version>
-        </dependency> -->
 
         <dependency>
             <groupId>com.dwi.basic</groupId>
@@ -174,7 +168,7 @@
 
     <build>
         <filters>
-            <filter>../../src/main/filters/config-${profile.active}.properties</filter>
+            <filter>../../../src/main/filters/config-${profile.active}.properties</filter>
         </filters>
         <plugins>
             <plugin>
