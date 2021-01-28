@@ -1,4 +1,6 @@
-package com.dwi.saas.example.domain.entity;
+
+
+ package com.dwi.saas.demo.domain.entity;
 
 import cn.afterturn.easypoi.excel.annotation.Excel;
 import cn.afterturn.easypoi.excel.annotation.ExcelEntity;
@@ -8,8 +10,8 @@ import com.dwi.basic.annotation.injection.InjectionField;
 import com.dwi.basic.base.entity.Entity;
 import com.dwi.basic.model.RemoteData;
 import com.dwi.saas.common.constant.DictionaryType;
-import com.dwi.saas.example.domain.enumeration.ProductType;
-import com.dwi.saas.example.domain.enumeration.ProductType2Enum;
+import com.dwi.saas.demo.domain.enumeration.ProductType;
+import com.dwi.saas.demo.domain.enumeration.ProductType2Enum;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

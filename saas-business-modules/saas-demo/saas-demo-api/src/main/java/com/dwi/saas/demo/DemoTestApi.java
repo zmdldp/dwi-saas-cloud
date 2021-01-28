@@ -1,8 +1,7 @@
-package com.dwi.saas.example.api;
+package com.dwi.saas.demo;
 
 import com.dwi.basic.base.R;
-//import com.dwi.saas.demo.domain.entity.Product;
-import com.dwi.saas.example.domain.entity.Product;
+import com.dwi.saas.demo.domain.entity.Product;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -9,9 +9,9 @@ import com.dwi.basic.cache.model.CacheKeyBuilder;
 import com.dwi.basic.database.mybatis.auth.DataScope;
 import com.dwi.basic.database.mybatis.conditions.Wraps;
 import com.dwi.basic.injection.properties.InjectionProperties;
+import com.dwi.saas.demo.domain.entity.Order;
 import com.dwi.saas.example.biz.dao.OrderMapper;
 import com.dwi.saas.example.biz.service.OrderService;
-import com.dwi.saas.example.domain.entity.Order;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

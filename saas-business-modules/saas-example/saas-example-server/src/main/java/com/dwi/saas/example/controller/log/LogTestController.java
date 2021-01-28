@@ -5,9 +5,8 @@ import com.dwi.basic.base.R;
 import com.dwi.basic.base.entity.SuperEntity;
 import com.dwi.basic.base.request.PageParams;
 import com.dwi.basic.exception.BizException;
+import com.dwi.saas.demo.domain.entity.Order;
 import com.dwi.saas.example.domain.dto.UserUpdatePasswordDTO;
-//import com.dwi.saas.authority.domain.dto.auth.UserUpdatePasswordDTO;
-import com.dwi.saas.example.domain.entity.Order;
 
 import io.swagger.annotations.Api;
 import lombok.AllArgsConstructor;

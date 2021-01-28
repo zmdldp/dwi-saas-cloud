@@ -16,6 +16,7 @@
 
     <packaging>pom</packaging>
     <modules>
+    	<module>saas-demo-api</module>
         <module>saas-demo-server</module>
     </modules>
 

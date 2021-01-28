@@ -3,7 +3,7 @@ package com.dwi.saas.example.controller.xss;
 import com.dwi.basic.annotation.user.LoginUser;
 import com.dwi.basic.base.R;
 import com.dwi.basic.security.model.SysUser;
-import com.dwi.saas.example.domain.entity.Order;
+import com.dwi.saas.demo.domain.entity.Order;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiImplicitParam;

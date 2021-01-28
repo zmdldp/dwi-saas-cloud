@@ -3,11 +3,11 @@ package com.dwi.saas.example.controller;
 
 import com.dwi.basic.annotation.security.PreAuth;
 import com.dwi.basic.base.controller.SuperCacheController;
+import com.dwi.saas.demo.domain.entity.Order;
 import com.dwi.saas.example.biz.service.OrderService;
 import com.dwi.saas.example.domain.dto.OrderPageDTO;
 import com.dwi.saas.example.domain.dto.OrderSaveDTO;
 import com.dwi.saas.example.domain.dto.OrderUpdateDTO;
-import com.dwi.saas.example.domain.entity.Order;
 
 import io.swagger.annotations.Api;
 import lombok.extern.slf4j.Slf4j;

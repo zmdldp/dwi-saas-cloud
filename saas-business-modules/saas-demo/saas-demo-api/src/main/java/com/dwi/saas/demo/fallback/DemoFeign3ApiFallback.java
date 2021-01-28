@@ -1,8 +1,8 @@
-package com.dwi.saas.example.api.fallback;
+package com.dwi.saas.demo.fallback;
 
 import com.dwi.basic.base.R;
-import com.dwi.saas.example.api.DemoFeign3Api;
-import com.dwi.saas.example.domain.dto.RestTestDTO;
+import com.dwi.saas.demo.DemoFeign3Api;
+import com.dwi.saas.demo.domain.dto.RestTestDTO;
 
 import feign.hystrix.FallbackFactory;
 import lombok.extern.slf4j.Slf4j;

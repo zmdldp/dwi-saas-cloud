@@ -7,8 +7,8 @@ import com.dwi.basic.base.request.PageParams;
 import com.dwi.basic.database.mybatis.conditions.Wraps;
 import com.dwi.basic.database.mybatis.conditions.query.LbqWrapper;
 import com.dwi.basic.injection.core.InjectionCore;
+import com.dwi.saas.demo.domain.entity.Order;
 import com.dwi.saas.example.biz.service.OrderService;
-import com.dwi.saas.example.domain.entity.Order;
 
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;

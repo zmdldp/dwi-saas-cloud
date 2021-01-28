@@ -1,8 +1,8 @@
-package com.dwi.saas.example.api.fallback;
+package com.dwi.saas.demo.fallback;
 
 import com.dwi.basic.base.R;
-import com.dwi.saas.example.api.DemoFeign2Api;
-import com.dwi.saas.example.domain.dto.RestTestDTO;
+import com.dwi.saas.demo.DemoFeign2Api;
+import com.dwi.saas.demo.domain.dto.RestTestDTO;
 
 import org.springframework.stereotype.Component;
 

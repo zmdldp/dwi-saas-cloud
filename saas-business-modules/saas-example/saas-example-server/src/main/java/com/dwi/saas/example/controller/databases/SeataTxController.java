@@ -1,11 +1,10 @@
 package com.dwi.saas.example.controller.databases;
 
 import com.dwi.basic.base.R;
-//import com.dwi.saas.demo.domain.entity.Product;
-import com.dwi.saas.example.api.DemoTestApi;
+import com.dwi.saas.demo.DemoTestApi;
+import com.dwi.saas.demo.domain.entity.Order;
+import com.dwi.saas.demo.domain.entity.Product;
 import com.dwi.saas.example.biz.service.OrderService;
-import com.dwi.saas.example.domain.entity.Order;
-import com.dwi.saas.example.domain.entity.Product;
 
 import io.seata.spring.annotation.GlobalTransactional;
 import io.swagger.annotations.Api;

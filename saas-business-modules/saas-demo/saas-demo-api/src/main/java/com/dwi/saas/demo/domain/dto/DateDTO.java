@@ -1,4 +1,4 @@
-package com.dwi.saas.example.domain.dto;
+package com.dwi.saas.demo.domain.dto;
 
 
 import com.fasterxml.jackson.annotation.JsonFormat;

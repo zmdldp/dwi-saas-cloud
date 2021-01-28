@@ -18,6 +18,18 @@
     
     	<dependency>
             <groupId>com.dwi.saas</groupId>
+            <artifactId>saas-demo-api</artifactId>
+            <version>${saas-project.version}</version>
+        </dependency>
+    
+    	<dependency>
+            <groupId>com.dwi.saas</groupId>
+            <artifactId>saas-authority-api</artifactId>
+            <version>${saas-project.version}</version>
+        </dependency>
+    
+    	<dependency>
+            <groupId>com.dwi.saas</groupId>
             <artifactId>saas-tenant-datasource</artifactId>
             <version>${saas-project.version}</version>
         </dependency>
@@ -61,12 +73,6 @@
         <dependency>
             <groupId>io.seata</groupId>
             <artifactId>seata-spring-boot-starter</artifactId>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.dwi.saas</groupId>
-            <artifactId>saas-authority-api</artifactId>
-            <version>${saas-project.version}</version>
         </dependency>
 
         <!-- 注入当前登录人信息 需要在Controller方法参数上写注解和实体类 -->

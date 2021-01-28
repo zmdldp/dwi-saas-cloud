@@ -1,9 +1,8 @@
 package com.dwi.saas.example.controller.cloud;
 
 import com.dwi.basic.base.R;
-//import com.dwi.saas.authority.domain.dto.test.DateDTO;
-import com.dwi.saas.example.api.TestDateApi;
-import com.dwi.saas.example.domain.dto.DateDTO;
+import com.dwi.saas.demo.TestDateApi;
+import com.dwi.saas.demo.domain.dto.DateDTO;
 
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;

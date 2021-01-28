@@ -4,12 +4,9 @@ import com.dwi.basic.annotation.base.IgnoreResponseBodyAdvice;
 import com.dwi.basic.annotation.user.LoginUser;
 import com.dwi.basic.base.R;
 import com.dwi.basic.security.model.SysUser;
-import com.dwi.saas.example.domain.dto.DateDTO;
+import com.dwi.saas.demo.domain.dto.DateDTO;
+import com.dwi.saas.demo.domain.entity.Order;
 import com.dwi.saas.example.domain.dto.ObjDTO;
-//import com.dwi.saas.authority.domain.dto.test.DateDTO;
-//import com.dwi.saas.authority.domain.dto.test.ObjDTO;
-//import com.dwi.saas.authority.domain.entity.auth.User;
-import com.dwi.saas.example.domain.entity.Order;
 import com.dwi.saas.example.domain.entity.User;
 
 import io.swagger.annotations.Api;

@@ -5,7 +5,7 @@ import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Constants;
 import com.dwi.basic.base.mapper.SuperMapper;
 import com.dwi.basic.database.mybatis.auth.DataScope;
-import com.dwi.saas.example.domain.entity.Order;
+import com.dwi.saas.demo.domain.entity.Order;
 
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;

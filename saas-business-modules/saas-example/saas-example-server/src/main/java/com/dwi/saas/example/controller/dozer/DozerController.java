@@ -5,10 +5,10 @@ import cn.hutool.core.bean.copier.CopyOptions;
 import com.dwi.basic.base.R;
 import com.dwi.basic.dozer.DozerUtils;
 import com.dwi.basic.utils.BeanPlusUtil;
+import com.dwi.saas.demo.domain.entity.Order;
 import com.dwi.saas.example.domain.dto.OrderDozerTest;
 import com.dwi.saas.example.domain.dto.OrderDozerTest2;
 import com.dwi.saas.example.domain.dto.OrderPageDTO;
-import com.dwi.saas.example.domain.entity.Order;
 
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;

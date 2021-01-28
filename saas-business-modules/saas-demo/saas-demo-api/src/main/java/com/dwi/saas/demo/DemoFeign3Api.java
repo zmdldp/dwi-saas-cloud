@@ -1,8 +1,8 @@
-package com.dwi.saas.example.api;
+package com.dwi.saas.demo;
 
 import com.dwi.basic.base.R;
-import com.dwi.saas.example.api.fallback.DemoFeign3ApiFallback;
-import com.dwi.saas.example.domain.dto.RestTestDTO;
+import com.dwi.saas.demo.domain.dto.RestTestDTO;
+import com.dwi.saas.demo.fallback.DemoFeign3ApiFallback;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -15,6 +15,24 @@
     <description>演示服务启动模块</description>
 
     <dependencies>
+    
+    	<dependency>
+            <groupId>com.dwi.saas</groupId>
+            <artifactId>saas-demo-api</artifactId>
+            <version>${saas-project.version}</version>
+        </dependency>
+    
+        <dependency>
+            <groupId>com.dwi.saas</groupId>
+            <artifactId>saas-authority-api</artifactId>
+            <version>${saas-project.version}</version>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.dwi.saas</groupId>
+            <artifactId>saas-file-api</artifactId>
+            <version>${saas-project.version}</version>
+        </dependency>
         
         <dependency>
             <groupId>com.dwi.saas</groupId>
@@ -51,17 +69,6 @@
         <dependency>
             <groupId>com.dwi.basic</groupId>
             <artifactId>saas-boot</artifactId>
-        </dependency>
-        
-        <dependency>
-            <groupId>com.dwi.saas</groupId>
-            <artifactId>saas-authority-api</artifactId>
-            <version>${saas-project.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>com.dwi.saas</groupId>
-            <artifactId>saas-file-api</artifactId>
-            <version>${saas-project.version}</version>
         </dependency>
 
         <dependency>

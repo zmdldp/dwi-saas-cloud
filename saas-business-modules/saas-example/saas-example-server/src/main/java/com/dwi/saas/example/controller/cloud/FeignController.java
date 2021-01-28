@@ -1,13 +1,13 @@
 package com.dwi.saas.example.controller.cloud;
 
 import com.dwi.basic.base.R;
-import com.dwi.saas.example.api.DemoFeign2Api;
-import com.dwi.saas.example.api.DemoFeign3Api;
-import com.dwi.saas.example.api.DemoFeignApi;
-import com.dwi.saas.example.domain.dto.RestTestDTO;
-import com.dwi.saas.example.domain.entity.Order;
+import com.dwi.saas.demo.DemoFeign2Api;
+import com.dwi.saas.demo.DemoFeign3Api;
+import com.dwi.saas.demo.DemoFeignApi;
+import com.dwi.saas.demo.domain.dto.RestTestDTO;
+import com.dwi.saas.demo.domain.entity.Order;
 
-import io.seata.common.util.IOUtil;
+import cn.hutool.core.io.IoUtil;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
@@ -90,7 +90,7 @@ public class FeignController {
         } catch (IOException e) {
             log.error("createFileItem error", e);
         } finally {
-            IOUtil.close(fis);
+            IoUtil.close(fis);
         }
         return item;
     }
@@ -107,7 +107,7 @@ public class FeignController {
 
     @PostMapping("/post2")
     public R<RestTestDTO> post2(@RequestBody RestTestDTO order) {
-        return demoFeignApi.post(order);
+        return demoFeignApi.post2(order);
     }
 
     @PostMapping(value = "/upload")

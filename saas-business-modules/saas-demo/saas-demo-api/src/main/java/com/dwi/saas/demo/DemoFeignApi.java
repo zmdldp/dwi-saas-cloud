@@ -1,8 +1,8 @@
-package com.dwi.saas.example.api;
+package com.dwi.saas.demo;
 
 import com.dwi.basic.base.R;
-import com.dwi.saas.example.domain.dto.RestTestDTO;
-import com.dwi.saas.example.domain.entity.Order;
+import com.dwi.saas.demo.domain.dto.RestTestDTO;
+import com.dwi.saas.demo.domain.entity.Order;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.MediaType;
@@ -33,7 +33,7 @@ public interface DemoFeignApi {
     R<RestTestDTO> post(@RequestParam("key") String key);
 
     @PostMapping("/post2")
-    R<RestTestDTO> post(@RequestBody RestTestDTO order);
+    R<RestTestDTO> post2(@RequestBody RestTestDTO order);
 
 
     @PostMapping("/fallback")
