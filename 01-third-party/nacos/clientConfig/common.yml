@@ -50,6 +50,12 @@ saas:
   xss:
     enabled: true
     requestBodyEnabled: false
+  captcha:
+    type: ARITHMETIC
+    width: 158
+    height: 58
+    len: 2
+    charType: 2
 
 knife4j:
   enable: true
