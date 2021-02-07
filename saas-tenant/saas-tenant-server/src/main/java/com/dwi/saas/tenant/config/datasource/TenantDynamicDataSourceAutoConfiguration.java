@@ -56,15 +56,4 @@ public class TenantDynamicDataSourceAutoConfiguration extends BaseDynamicDataSou
     public TenantDynamicDataSourceAutoConfiguration(DynamicDataSourceProperties properties) {
         super(properties);
     }
-
-//    /**
-//     * 项目启动时，初始化数据源
-//     *
-//     * @param initSystemContext
-//     * @return
-//     */
-//    @Bean
-//    public InitDatabaseOnStarted getInitDatabaseOnStarted(DatasourceInitSystemStrategy initSystemContext) {
-//        return new InitDatabaseOnStarted(initSystemContext);
-//    }
 }

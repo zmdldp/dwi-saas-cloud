@@ -1,7 +1,5 @@
 
 # saas-cloud 简介
-`saas-cloud`的前身是`dwi-admin-cloud`，从3.0.0版本开始，改名为saas-cloud，它是`saas`项目的其中一员。
-
 `saas-cloud` 基于`SpringCloud(Hoxton.SR9)`  + `SpringBoot(2.3.6.RELEASE)` 的微服务快速开发平台，其中的可配置的SaaS功能尤其闪耀，
 具备RBAC功能、网关统一鉴权、Xss防跨站攻击、自动代码生成、多种存储系统、分布式事务、分布式定时任务等多个模块，支持多业务系统并行开发，
 支持多服务并行开发，可以作为后端服务的开发脚手架。代码简洁，注释齐全，架构清晰，非常适合学习和企业作为基础框架使用。

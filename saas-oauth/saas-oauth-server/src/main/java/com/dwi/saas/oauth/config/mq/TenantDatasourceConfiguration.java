@@ -37,7 +37,7 @@ import lombok.extern.slf4j.Slf4j;
 @ConditionalOnProperty(prefix = MqProperties.PREFIX, name = "enabled", havingValue = "true")
 public class TenantDatasourceConfiguration {
 
-	private final DataSourceService datasourceApi;
+	private final DataSourceService dataSourceService;
 
 	@Bean
 	@ConditionalOnProperty(prefix = DatabaseProperties.PREFIX, name = "multiTenantType", havingValue = "DATASOURCE")
@@ -59,9 +59,9 @@ public class TenantDatasourceConfiguration {
 		JSONObject map = JSON.parseObject(param);
 
 		if (INIT_DS_PARAM_METHOD_INIT.equals(map.getString(INIT_DS_PARAM_METHOD))) {
-			datasourceApi.initConnect(map.getObject(INIT_DS_PARAM_TENANT, DataSourcePropertyDTO.class));
+			dataSourceService.initConnect(map.getObject(INIT_DS_PARAM_TENANT, DataSourcePropertyDTO.class));
 		} else {
-			datasourceApi.remove(map.getString(INIT_DS_PARAM_TENANT));
+			dataSourceService.remove(map.getString(INIT_DS_PARAM_TENANT));
 		}
 	}
 }
