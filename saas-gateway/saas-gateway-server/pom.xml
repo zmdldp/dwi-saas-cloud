@@ -39,12 +39,6 @@
         </dependency>
         
         <dependency>
-            <groupId>com.dwi.saas</groupId>
-            <artifactId>saas-oauth-api</artifactId>
-            <version>${saas-project.version}</version>
-        </dependency>
-        
-        <dependency>
             <groupId>com.dwi.basic</groupId>
             <artifactId>saas-jwt-starter</artifactId>
             <exclusions>

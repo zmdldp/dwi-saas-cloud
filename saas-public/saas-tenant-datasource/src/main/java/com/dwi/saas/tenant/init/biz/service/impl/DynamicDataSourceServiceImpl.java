@@ -115,22 +115,29 @@ public class DynamicDataSourceServiceImpl implements DataSourceService {
     public Set<String> addDynamicRoutingDataSource(DataSourceProperty dto) {
         DataSource newDataSource = createDataSource(dto);
         DynamicRoutingDataSource ds = (DynamicRoutingDataSource) this.dataSource;
-        ds.addDataSource(dto.getPoolName(), newDataSource);
+        if(newDataSource != null) {
+        	ds.addDataSource(dto.getPoolName(), newDataSource);
+        }          
         return ds.getCurrentDataSources().keySet();
     }
 
     public DataSource createDataSource(DataSourceProperty dataSourceProperty) {
-        if (dataSourceProperty == null) {
-            dataSourceProperty = new DataSourceProperty();
-        }
-        dataSourceProperty.setSeata(databaseProperties.getIsSeata());
-        dataSourceProperty.setDruid(properties.getDruid());
-        try {
-            return druidDataSourceCreator.createDataSource(dataSourceProperty);
-        } catch (ErrorCreateDataSourceException e) {
-            log.error("数据源初始化期间出现异常", e);
-            throw new BizException("数据源初始化期间出现异常", e);
-        }
+    	DataSource dataSource = null;
+    	if(getTestConnection(dataSourceProperty)) {
+    		dataSourceProperty.setSeata(databaseProperties.getIsSeata());
+            dataSourceProperty.setDruid(properties.getDruid());
+            try {
+            	dataSource = druidDataSourceCreator.createDataSource(dataSourceProperty);
+            } catch (ErrorCreateDataSourceException e) {
+                //log.error("数据源初始化期间出现异常", e);
+                log.error("数据源初始化期间出现异常, 异常数据源信息:{}", dataSourceProperty);
+               // throw new BizException("数据源初始化期间出现异常", e);
+            }
+    	}else {
+    		//TODO
+    	}
+    	return dataSource;
+        
     }
 
 
@@ -154,7 +161,6 @@ public class DynamicDataSourceServiceImpl implements DataSourceService {
         try {
             testDataSource = druidDataSourceCreator.createDataSource(dataSourceProperty);
             connection = testDataSource.getConnection();
-
             int timeOut = 5;
             if (connection == null || connection.isClosed() || !connection.isValid(timeOut)) {
                 log.info("链接已关闭或无效，请重试获取链接！");
@@ -163,10 +169,12 @@ public class DynamicDataSourceServiceImpl implements DataSourceService {
             flag = connection != null;
         } catch (ErrorCreateDataSourceException e) {
             log.error("数据源初始化期间出现异常", e);
-            throw new BizException("数据源初始化期间出现异常", e);
+            flag = false;
+            //throw new BizException("数据源初始化期间出现异常", e);
         } catch (Exception e) {
             log.error("创建测试链接错误 {}", dataSourceProperty.getUrl());
-            throw new BizException("创建测试链接错误 " + dataSourceProperty.getUrl(), e);
+            flag = false;
+            //throw new BizException("创建测试链接错误 " + dataSourceProperty.getUrl(), e);
         } finally {
             if (testDataSource instanceof ItemDataSource) {
                 ((ItemDataSource) testDataSource).close();

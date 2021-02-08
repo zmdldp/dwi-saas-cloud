@@ -2,7 +2,6 @@ package com.dwi.saas.tenant.biz.service;
 
 import com.dwi.basic.base.service.SuperCacheService;
 import com.dwi.saas.tenant.domain.dto.TenantSaveDTO;
-//import com.dwi.saas.tenant.domain.entity.Tenant;
 import com.dwi.saas.tenant.domain.entity.Tenant;
 import com.dwi.saas.tenant.domain.dto.TenantConnectDTO;
 import com.dwi.saas.tenant.domain.enumeration.TenantStatusEnum;

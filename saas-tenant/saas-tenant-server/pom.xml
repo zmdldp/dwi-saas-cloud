@@ -27,13 +27,7 @@
             <artifactId>saas-common</artifactId>
             <version>${saas-project.version}</version>
         </dependency>
-        
-        <dependency>
-            <groupId>com.dwi.saas</groupId>
-            <artifactId>saas-tenant-datasource</artifactId>
-            <version>${saas-project.version}</version>
-        </dependency>
-        
+     
         <dependency>
             <groupId>com.dwi.basic</groupId>
             <artifactId>saas-databases</artifactId>
