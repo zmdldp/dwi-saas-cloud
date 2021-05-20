@@ -1,0 +1,16 @@
+saas:
+  swagger:
+   # enabled: true
+    docket:
+      auth:
+        title: 权限模块
+        base-package: com.dwi.saas.authority.controller.auth
+      common:
+        title: 公共模块
+        base-package: com.dwi.saas.authority.controller.common
+      core:
+        title: 组织模块
+        base-package: com.dwi.saas.authority.controller.core
+
+server:
+  port: 8764

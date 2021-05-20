@@ -1,0 +1,10 @@
+saas:
+  swagger:
+   # enabled: true
+    docket:
+      tenant:
+        title: 租户模块
+        base-package: com.dwi.saas.tenant.controller
+
+server:
+  port: 8778

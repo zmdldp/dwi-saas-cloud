@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://maven.apache.org/POM/4.0.0"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <groupId>com.dwi.saas</groupId>
+        <artifactId>saas-activiti</artifactId>
+        <version>1.0.0-Cloud-SNAPSHOT</version>
+        <relativePath>../pom.xml</relativePath>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>saas-activiti-server</artifactId>
+    <name>${project.artifactId}</name>
+    <description>工作流服务</description>
+
+    <dependencies>
+
+        <!--业务相关-->
+		<dependency>
+            <groupId>com.dwi.saas</groupId>
+            <artifactId>saas-common</artifactId>
+            <version>${saas-project.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.dwi.saas</groupId>
+            <artifactId>saas-authority-api</artifactId>
+            <version>${saas-project.version}</version>
+        </dependency>
+		<dependency>
+            <groupId>com.dwi.saas</groupId>
+            <artifactId>saas-authority-api</artifactId>
+            <version>${saas-project.version}</version>
+        </dependency>
+                
+        <dependency>
+            <groupId>com.dwi.basic</groupId>
+            <artifactId>saas-datasource-plugin</artifactId>
+        </dependency> 
+        
+         <dependency>
+            <groupId>com.dwi.basic</groupId>
+            <artifactId>saas-log-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dwi.basic</groupId>
+            <artifactId>saas-databases</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dwi.basic</groupId>
+            <artifactId>saas-echo-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dwi.basic</groupId>
+            <artifactId>saas-boot</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dwi.basic</groupId>
+            <artifactId>saas-cloud-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dwi.basic</groupId>
+            <artifactId>saas-swagger2-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dwi.basic</groupId>
+            <artifactId>saas-validator-starter</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.dwi.basic</groupId>
+            <artifactId>saas-xss-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dwi.basic</groupId>
+            <artifactId>saas-security-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tomcat.embed</groupId>
+                    <artifactId>tomcat-embed-websocket</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+        
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-freemarker</artifactId>
+        </dependency>
+
+
+        <!-- activiti -->
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-spring-boot-starter-basic</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.mybatis</groupId>
+                    <artifactId>mybatis</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>de.odysseus.juel</groupId>
+                    <artifactId>juel-spi</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>de.odysseus.juel</groupId>
+                    <artifactId>juel-api</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-security</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.activiti</groupId>
+            <artifactId>activiti-json-converter</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.activiti</groupId>
+                    <artifactId>activiti-bpmn-model</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+         <!-- batik start -->
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-anim -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-anim</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-awt-util -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-awt-util</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-bridge -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-bridge</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-codec -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-codec</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-css -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-css</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-dom -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-dom</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-ext -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-ext</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-gvt -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-gvt</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-js -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-js</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-parser -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-parser</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-script -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-script</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-svg-dom -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-svg-dom</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-svggen -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-svggen</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-transcoder -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-transcoder</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-util -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-util</artifactId>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.xmlgraphics/batik-xml -->
+        <dependency>
+            <groupId>org.apache.xmlgraphics</groupId>
+            <artifactId>batik-xml</artifactId>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+
+        <filters>
+            <filter>../../src/main/filters/config-${profile.active}.properties</filter>
+        </filters>
+
+        <finalName>${project.artifactId}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>true</executable>
+                </configuration>
+            </plugin>
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-resources-plugin</artifactId>-->
+            <!--                <configuration>-->
+            <!--                    <encoding>UTF-8</encoding>-->
+            <!--                    &lt;!&ndash; 过滤后缀为pem、pfx的证书文件 &ndash;&gt;-->
+            <!--                    <nonFilteredFileExtensions>-->
+            <!--                        <nonFilteredFileExtension>pem</nonFilteredFileExtension>-->
+            <!--                        <nonFilteredFileExtension>pfx</nonFilteredFileExtension>-->
+            <!--                        <nonFilteredFileExtension>p12</nonFilteredFileExtension>-->
+            <!--                        <nonFilteredFileExtension>key</nonFilteredFileExtension>-->
+            <!--                        <nonFilteredFileExtension>xls</nonFilteredFileExtension>-->
+            <!--                        <nonFilteredFileExtension>woff</nonFilteredFileExtension>-->
+            <!--                        <nonFilteredFileExtension>ttf</nonFilteredFileExtension>-->
+            <!--                        <nonFilteredFileExtension>eot</nonFilteredFileExtension>-->
+            <!--                        <nonFilteredFileExtension>svg</nonFilteredFileExtension>-->
+            <!--                    </nonFilteredFileExtensions>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+
+        </plugins>
+    </build>
+
+</project>
