@@ -9,7 +9,6 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
     <artifactId>saas-file-server</artifactId>
     <name>${project.artifactId}</name>
     <description>文件服务启动模块</description>
