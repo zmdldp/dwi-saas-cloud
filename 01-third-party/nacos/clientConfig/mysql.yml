@@ -13,6 +13,7 @@ saas:
     isNotWrite: false
     isBlockAttack: false
     isSeata: false
+    p6spy: true # 生产环境请设置p6spy = false
     id-type: HU_TOOL
     hutoolId:
       workerId: 0
